@@ -33,8 +33,7 @@ pipeline{
      stage("Run Container"){
             steps{
                 sh ''' 
-                docker stop $CONT_NAME
-                docker rm $CONT_NAME
+               
                 docker run -d -p 3000:80 --name $CONT_NAME sulaiman/$IMAGE_NAME:latest'''
             }
      }
