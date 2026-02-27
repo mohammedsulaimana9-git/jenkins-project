@@ -1,5 +1,9 @@
 pipeline{
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+        }
+    }
     environment {
         IMAGE_NAME = "react-app"
         CONT_NAME = "react-app-cont"
