@@ -18,14 +18,14 @@ pipeline{
      }
       stage("Docker login"){
             steps{
-                 withDockerRegistry(credentialsId: 'Docker-Cred', url: '') {
+                 withDockerRegistry(credentialsId: 'Docker-Cred', url: 'https://app.docker.com/accounts/mohammedsulaimana9') {
           }
          }
             }
        stage("Build And push Image"){
             steps{
                 sh '''
-                docker build -t mohammedfaisaliqbal/$IMAGE_NAME:latest -f Dockerfile1 .
+                docker build -t sulaiman/$IMAGE_NAME:latest -f Dockerfile1 .
                 
                 '''
             }
@@ -35,7 +35,7 @@ pipeline{
                 sh ''' 
                 docker stop $CONT_NAME
                 docker rm $CONT_NAME
-                docker run -d -p 3000:80 --name $CONT_NAME mohammedfaisaliqbal/$IMAGE_NAME:latest'''
+                docker run -d -p 3000:80 --name $CONT_NAME sulaiman/$IMAGE_NAME:latest'''
             }
      }
 }
