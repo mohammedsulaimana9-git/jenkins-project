@@ -18,8 +18,7 @@ pipeline{
      }
       stage("Docker login"){
             steps{
-                 withDockerRegistry(credentialsId: 'Docker-Cred', url: 'https://index.docker.io/v1/
-') {
+                 withDockerRegistry(credentialsId: 'Docker-Cred', url: 'https://index.docker.io/v1/') {
           }
          }
             }
